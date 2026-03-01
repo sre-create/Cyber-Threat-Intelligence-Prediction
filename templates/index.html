@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTI URL Threat Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>🔐 CTI URL Threat Detection</h2>
+
+    <form method="POST">
+        <input type="text" name="url" placeholder="Enter URL" required>
+        <button type="submit">Check URL</button>
+    </form>
+
+    {% if result %}
+        <div class="result {{ risk|lower }}">
+            <p><strong>Status:</strong> {{ result }}</p>
+            <p><strong>Risk Level:</strong> {{ risk }}</p>
+            <p><strong>Threat Score:</strong> {{ threat_score }}%</p>
+        </div>
+
+        {% if risk == "High" %}
+            <div class="alert high">
+                ⚠️ WARNING! High Risk URL Detected
+            </div>
+        {% elif risk == "Critical" %}
+            <div class="alert critical">
+                🚨 CRITICAL ALERT! Extremely Dangerous URL
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+
+<!-- Separate link container to avoid violet color -->
+<div style="text-align:center; margin-top:20px;">
+    <a href="/history" class="link">📜 View Scan History</a>
+</div>
+
+</body>
+</html>
+
+
+

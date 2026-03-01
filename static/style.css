@@ -1,0 +1,114 @@
+/* Global Page Styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* Main Container */
+.container {
+    max-width: 520px;
+    margin: 80px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+/* Headings */
+h2 {
+    color: #00eaff;
+    margin-bottom: 20px;
+}
+
+/* Input Field */
+input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Button */
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #00aaff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0088cc;
+}
+
+/* Result Card */
+.result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(25, 14, 14, 0.1);
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Risk Color Coding */
+.result.low { border-left: 5px solid #00ff00; }
+.result.medium { border-left: 5px solid #ffff00; }
+.result.high { border-left: 5px solid #ff8800; }
+.result.critical { border-left: 5px solid #ff3333; }
+
+/* Sliding Alert Banner */
+.alert {
+    position: fixed;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    animation: slideUp 0.6s ease-out forwards, blink 1s infinite;
+    z-index: 999;
+}
+
+/* Alert Colors */
+.alert.medium { background-color: #ffd700; color: black; }
+.alert.high { background-color: #ff8800; color: white; }
+.alert.critical { background-color: #ff3333; color: white; }
+
+/* Animations */
+@keyframes slideUp { to { bottom: 30px; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* History Page Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    font-size: 14px;
+}
+th, td { border: 1px solid #00eaff; padding: 10px; text-align: center; }
+th { background: rgba(0,0,0,0.6); color: #00eaff; }
+tr:nth-child(even) { background: rgba(255,255,255,0.05); }
+
+/* Links - Force color to match title */
+.link, .link:visited, .link:hover, .link:active {
+    color: #00eaff !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
